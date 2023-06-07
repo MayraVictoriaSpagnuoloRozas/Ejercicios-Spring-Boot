@@ -8,7 +8,7 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int ID;
+    private Integer ID;
     @Column(name="nombre", length = 100, nullable = false)
     private String nombre;
     @Column(name="telefono", length = 100, nullable = false)

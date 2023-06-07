@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ImpPersonaServicio implements PersonaServicio{
+    public class ImpPersonaServicio implements PersonaServicio{
     @Autowired
     private PersonaRepositorio personaRepositorio;
 
@@ -23,17 +23,26 @@ public class ImpPersonaServicio implements PersonaServicio{
     }
 
     @Override
-    public Persona ObtenerPorID(Integer ID) {
-        return null;
+    public Persona Agregar(Persona persona) {
+        personaRepositorio.save(persona);
+        return persona;
     }
 
     @Override
-    public Persona ActualizarPersona() {
-        return null;
+    public Persona ObtenerPorID(Integer ID) {
+
+        return personaRepositorio.findById(ID).get();
+    }
+
+    @Override
+    public Persona ActualizarPersona(Persona persona) {
+
+        return personaRepositorio.save(persona);
     }
 
     @Override
     public void EliminarPersona(Integer ID) {
+        personaRepositorio.deleteById(ID);
 
     }
 }
